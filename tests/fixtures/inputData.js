@@ -41,3 +41,52 @@ export const mobileBoundaryCases = [
     isValid: false,
   },
 ];
+
+export const validSummaryCases = [
+  {
+    firstName: 'Supanat',
+    lastName: 'Kampapan',
+    email: 'supanat.kampapan@example.com',
+    gender: 'Male',
+    mobile: '0812345678',
+    state: 'NCR',
+    city: 'Delhi',
+  },
+  {
+    firstName: 'Chanaphan',
+    lastName: 'Prasomwong',
+    email: 'chanaphan.prasomwong@example.com',
+    gender: 'Female',
+    mobile: '0898765432',
+    state: 'Uttar Pradesh',
+    city: 'Lucknow',
+  },
+];
+
+export const stateCityCases = [
+  {
+    state: 'NCR',
+    expectedCities: ['Delhi', 'Gurgaon', 'Noida'],
+    unexpectedCity: 'Lucknow',
+  },
+  {
+    state: 'Uttar Pradesh',
+    expectedCities: ['Agra', 'Lucknow', 'Merrut'],
+    unexpectedCity: 'Delhi',
+  },
+  {
+    state: 'Haryana',
+    expectedCities: ['Karnal', 'Panipat'],
+    unexpectedCity: 'Jaipur',
+  },
+  {
+    state: 'Rajasthan',
+    expectedCities: ['Jaipur', 'Jaiselmer'],
+    unexpectedCity: 'Karnal',
+  },
+];
+
+export const validEmailCases = [
+  'supanat.kampapan@example.com',
+  'supanat@mail.example.com',
+];

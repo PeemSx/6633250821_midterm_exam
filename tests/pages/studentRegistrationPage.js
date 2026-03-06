@@ -16,8 +16,6 @@ export class StudentRegistrationPage {
 
     // Date of birth
     this.dateOfBirthInput = page.locator('#dateOfBirthInput');
-    this.dateMonthSelect = page.locator('.react-datepicker__month-select');
-    this.dateYearSelect = page.locator('.react-datepicker__year-select');
 
     // Subjects
     this.subjectsInput = page.locator('#subjectsInput');
@@ -39,7 +37,7 @@ export class StudentRegistrationPage {
 
     // Result modal
     this.modalTitle = page.locator('#example-modal-sizes-title-lg');
-    this.closeModalButton = page.getByRole('button', { name: 'Close' });
+    this.closeModalButton = page.locator('.modal-content #closeLargeModal');
     this.resultTableRows = page.locator('.table-responsive tr');
   }
 }
