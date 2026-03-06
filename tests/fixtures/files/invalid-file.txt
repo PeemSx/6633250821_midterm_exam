@@ -1,0 +1,1 @@
+This is a non-image file for negative upload test.
