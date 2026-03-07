@@ -1,5 +1,12 @@
 import { expect } from '@playwright/test';
 
+export function dateOfBirthDay(page, day) {
+  return page
+    .locator('.react-datepicker__day:not(.react-datepicker__day--outside-month)')
+    .filter({ hasText: String(day) })
+    .first();
+}
+
 function resultValue(form, label) {
   return form.resultTableRows.filter({ hasText: label }).locator('td').nth(1);
 }

@@ -14,6 +14,7 @@ test.describe('AC1: User can submit with valid data', () => {
 
   test('should show success modal after submit all fields', async ({ page }) => {
     const picturePath = '../fixtures/files/profile.png';
+    
     await form.firstNameInput.fill(validStudent.firstName);
     await form.lastNameInput.fill(validStudent.lastName);
     await form.emailInput.fill(validStudent.email);

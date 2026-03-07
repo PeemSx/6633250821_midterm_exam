@@ -11,7 +11,6 @@ export const validStudent = {
     currentAddress: 'Bangkok, Thailand',
     state: 'NCR',
     city: 'Delhi',
-
 };
 
 export const validSummaryCases = [

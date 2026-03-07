@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { StudentRegistrationPage } from '../../pages/studentRegistrationPage.js';
 import { validStudent } from '../../fixtures/inputData.js';
+import { dateOfBirthDay } from '../../utils/form.js';
 
 const FORM_URL = 'https://demoqa.com/automation-practice-form';
 
@@ -172,11 +173,11 @@ test.describe('AC6: Field validation', () => {
       expect(defaultDobValue).toBe(expectedDob);
     });
 
-    test('should allow selecting DOB manually via calendar widget', async () => {
+    test('should allow selecting DOB manually via calendar widget', async ({ page }) => {
       await form.dateOfBirthInput.click();
       await form.dateOfBirthYearSelect.selectOption('2019');
       await form.dateOfBirthMonthSelect.selectOption('1');
-      await form.dateOfBirthDay(12).click();
+      await dateOfBirthDay(page, 12).click();
 
       await expect(form.dateOfBirthInput).toHaveValue('12 Feb 2019');
     });

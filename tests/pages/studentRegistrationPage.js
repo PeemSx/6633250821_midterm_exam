@@ -43,10 +43,4 @@ export class StudentRegistrationPage {
     this.resultTableRows = page.locator('.table-responsive tr');
   }
 
-  dateOfBirthDay(day) {
-    return this.page
-      .locator('.react-datepicker__day:not(.react-datepicker__day--outside-month)')
-      .filter({ hasText: String(day) })
-      .first();
-  }
 }
