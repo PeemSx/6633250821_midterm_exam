@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { StudentRegistrationPage } from '../../pages/studentRegistrationPage.js';
 import { validStudent } from '../../fixtures/inputData.js';
+import { fillMandatory } from '../../utils/form.js';
 
 const FORM_URL = 'https://demoqa.com/automation-practice-form';
 
@@ -14,11 +15,8 @@ test.describe('AC1: User can submit with valid data', () => {
 
   test('should show success modal after submit all fields', async ({ page }) => {
     const picturePath = '../fixtures/files/profile.png';
-    
-    await form.firstNameInput.fill(validStudent.firstName);
-    await form.lastNameInput.fill(validStudent.lastName);
-    await form.emailInput.fill(validStudent.email);
-    await form.genderMale.click();
+
+    await fillMandatory(form, validStudent);
     await form.mobileInput.fill(validStudent.mobile);
     await form.dateOfBirthInput.fill(validStudent.dateOfBirth);
     await form.dateOfBirthInput.press('Enter');
@@ -39,10 +37,7 @@ test.describe('AC1: User can submit with valid data', () => {
   });
 
   test('should show success modal after submit only mandatory fields', async () => {
-    await form.firstNameInput.fill(validStudent.firstName);
-    await form.lastNameInput.fill(validStudent.lastName);
-    await form.emailInput.fill(validStudent.email);
-    await form.genderMale.click();
+    await fillMandatory(form, validStudent);
     await form.mobileInput.fill(validStudent.mobile);
 
     await form.submitButton.click();

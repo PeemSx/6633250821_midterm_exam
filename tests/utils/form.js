@@ -7,6 +7,22 @@ export function dateOfBirthDay(page, day) {
     .first();
 }
 
+export async function fillMandatory(form, data) {
+  await form.firstNameInput.fill(data.firstName);
+  await form.lastNameInput.fill(data.lastName);
+  await form.emailInput.fill(data.email);
+
+  if (data.gender === 'Female') {
+    await form.genderFemale.click();
+    return;
+  }
+  if (data.gender === 'Other') {
+    await form.genderOther.click();
+    return;
+  }
+  await form.genderMale.click();
+}
+
 function resultValue(form, label) {
   return form.resultTableRows.filter({ hasText: label }).locator('td').nth(1);
 }
